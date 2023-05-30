@@ -18,21 +18,13 @@ class HomeViewController: UIViewController {
     }
     
     private func handleButtonTap() {
-        print("hi")
+        print("Button tapped")
     }
     
-    func setupBottomView() {
+    private func setupBottomView() {
         bottomView.buttonAction = { [weak self] in
             self?.handleButtonTap()
         }
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bottomView)
-        
-        NSLayoutConstraint.activate([
-            bottomView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        bottomView.activateConstraints(for: bottomView, in: view)
     }
 }
