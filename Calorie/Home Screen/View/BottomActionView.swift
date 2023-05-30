@@ -8,12 +8,15 @@
 import UIKit
 
 class BottomActionView: UIView {
+    
     private let roundedRectView = RoundedRectView()
+    private let numPad = NumPad()
     private let label = UILabel()
     private let button = UIButton(type: .system)
+    private let stackView = UIStackView()
     
     private var heightConstraint: NSLayoutConstraint!
-
+    
     var buttonAction: (() -> Void)?
     
     var labelText: String? {
@@ -33,51 +36,90 @@ class BottomActionView: UIView {
         setupConstraints()
     }
     
+    func updateLabel(with text: String) {
+        labelText = text
+    }
+    
     private func setupView() {
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        addSubview(roundedRectView)
-        
+        // Configure stackView
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 20
+
+        // Configure label
         label.text = "Total: 2000kkal"
         label.font = .boldSystemFont(ofSize: 25)
         label.textColor = .white
         label.textAlignment = .center
-        roundedRectView.addSubview(label)
-        
+
+        // Add label and numPad to stackView
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(numPad)
+
+        // Add stackView to roundedRectView
+        roundedRectView.addSubview(stackView)
+
+        // Add roundedRectView to self
+        addSubview(roundedRectView)
+
+        // Configure button
         button.layer.cornerRadius = 30
         button.backgroundColor = .white
         button.setImage(UIImage(systemName: "plus"), for: .normal)
+
+        // Add button target action
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+
+        // Add button to self
         addSubview(button)
+        
+        // Configure numPad
+        numPad.isHidden = true
+        numPad.didSelectItem = { [weak self] selectedText in
+            if let existingText = self?.labelText {
+                if existingText == "Enter new value!" {
+                    self?.labelText = selectedText.description
+                } else {
+                    self?.labelText = existingText + selectedText.description
+                }
+            } else {
+                self?.labelText = selectedText.description
+            }
+        }
     }
     
     @objc private func buttonTapped() {
         buttonAction?()
+        numPad.isHidden = !numPad.isHidden
         animateHeightChange()
     }
     
     private func setupConstraints() {
         roundedRectView.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+            
         let bottomOffset: CGFloat = 0
         heightConstraint = roundedRectView.heightAnchor.constraint(equalToConstant: 120)
-        
+            
         NSLayoutConstraint.activate([
             roundedRectView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomOffset),
             roundedRectView.leadingAnchor.constraint(equalTo: leadingAnchor),
             roundedRectView.trailingAnchor.constraint(equalTo: trailingAnchor),
             heightConstraint,
-            
-            label.centerXAnchor.constraint(equalTo: roundedRectView.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: roundedRectView.centerYAnchor),
-            
+                
             button.centerXAnchor.constraint(equalTo: roundedRectView.centerXAnchor),
             button.bottomAnchor.constraint(equalTo: roundedRectView.topAnchor, constant: 30),
             button.widthAnchor.constraint(equalToConstant: 60),
-            button.heightAnchor.constraint(equalToConstant: 60)
+            button.heightAnchor.constraint(equalToConstant: 60),
+                
+            stackView.centerXAnchor.constraint(equalTo: roundedRectView.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: roundedRectView.centerYAnchor, constant: 5),
+            stackView.widthAnchor.constraint(equalTo: roundedRectView.widthAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 170)
         ])
     }
-    
+
     private func animateHeightChange() {
         let isExpanded = (heightConstraint.constant == 120)
         let newHeight: CGFloat = isExpanded ? 250 : 120
@@ -99,5 +141,3 @@ class BottomActionView: UIView {
         animator.startAnimation()
     }
 }
-
-

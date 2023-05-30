@@ -17,6 +17,8 @@
 		528A30DC2A24B47000EDE842 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30DB2A24B47000EDE842 /* RoundedView.swift */; };
 		528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30DD2A24BDC100EDE842 /* BottomActionView.swift */; };
 		528A30EF2A24D4B000EDE842 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30EE2A24D4B000EDE842 /* Errors.swift */; };
+		52C853672A25D34400839D16 /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853662A25D34400839D16 /* NumPad.swift */; };
+		52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853682A25D3F200839D16 /* NumPadCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		528A30DB2A24B47000EDE842 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		528A30DD2A24BDC100EDE842 /* BottomActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionView.swift; sourceTree = "<group>"; };
 		528A30EE2A24D4B000EDE842 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		52C853662A25D34400839D16 /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
+		52C853682A25D3F200839D16 /* NumPadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 			children = (
 				528A30DB2A24B47000EDE842 /* RoundedView.swift */,
 				528A30DD2A24BDC100EDE842 /* BottomActionView.swift */,
+				52C853662A25D34400839D16 /* NumPad.swift */,
+				52C8536A2A25F57F00839D16 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +155,14 @@
 				528A30D52A24B2A100EDE842 /* Info.plist */,
 			);
 			path = "Supporting FIles";
+			sourceTree = "<group>";
+		};
+		52C8536A2A25F57F00839D16 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				52C853682A25D3F200839D16 /* NumPadCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,10 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */,
 				528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */,
 				528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */,
 				528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */,
 				528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */,
+				52C853672A25D34400839D16 /* NumPad.swift in Sources */,
 				528A30CF2A24B2A000EDE842 /* Calorie.xcdatamodeld in Sources */,
 				528A30DC2A24B47000EDE842 /* RoundedView.swift in Sources */,
 				528A30EF2A24D4B000EDE842 /* Errors.swift in Sources */,
