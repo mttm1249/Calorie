@@ -13,15 +13,19 @@ class BottomActionView: UIView {
     private let numPad = NumPad()
     private let calorieLabel = UILabel()
     private let mainButton = UIButton(type: .system)
+    private let addButton = UIButton()
     private let stackView = UIStackView()
+    private let addLabelStackView = UIStackView()
     
     private var heightConstraint: NSLayoutConstraint!
     
     var buttonAction: (() -> Void)?
     
     var labelText: String? {
-        get { return calorieLabel.text }
-        set { calorieLabel.text = newValue }
+        didSet {
+            calorieLabel.text = labelText
+            addButton.isHidden = labelText == "Enter new value!" ? true : false
+        }
     }
     
     override init(frame: CGRect) {
@@ -44,14 +48,31 @@ class BottomActionView: UIView {
         stackView.distribution = .fill
         stackView.spacing = 20
         
-        // Configure label
+        // Configure calorieLabel
         calorieLabel.text = "Total: 2000kkal"
         calorieLabel.font = .boldSystemFont(ofSize: 25)
         calorieLabel.textColor = .white
         calorieLabel.textAlignment = .center
         
-        // Add label and numPad to stackView
-        stackView.addArrangedSubview(calorieLabel)
+        // Configure addButton
+        addButton.setTitle("Add", for: .normal)
+        addButton.setTitleColor(.white, for: .normal)
+        addButton.backgroundColor = .darkGray
+        addButton.layer.cornerRadius = 8
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        addButton.isHidden = true
+        
+        // Configure addLabelStackView
+        addLabelStackView.axis = .horizontal
+        addLabelStackView.spacing = 5
+        addLabelStackView.distribution = .fillEqually
+        addLabelStackView.layoutMargins = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        addLabelStackView.isLayoutMarginsRelativeArrangement = true
+        addLabelStackView.addArrangedSubview(calorieLabel)
+        addLabelStackView.addArrangedSubview(addButton)
+        
+        // Add horizontal stackView to vertical stackView
+        stackView.addArrangedSubview(addLabelStackView)
         stackView.addArrangedSubview(numPad)
         
         // Add stackView to roundedRectView
@@ -74,21 +95,26 @@ class BottomActionView: UIView {
         // Configure numPad
         numPad.isHidden = true
         numPad.didSelectItem = { [weak self] selectedText in
-            if let existingText = self?.labelText {
-                if existingText == "Enter new value!" {
-                    self?.labelText = selectedText
-                } else {
-                    self?.labelText = existingText + selectedText
-                }
-            } else {
-                self?.labelText = selectedText
-            }
+            self?.handleSelectedText(selectedText)
         }
+    }
+    
+    private func handleSelectedText(_ text: String) {
+        if labelText == "Enter new value!" {
+            labelText = text
+        } else {
+            labelText = (labelText ?? "") + text
+        }
+    }
+    
+    @objc private func addButtonTapped() {
+        //TODO - Save to CoreData
+        labelText = ""
+        animateHeightChange()
     }
     
     @objc private func buttonTapped() {
         buttonAction?()
-        numPad.isHidden = !numPad.isHidden
         animateHeightChange()
     }
     
@@ -131,6 +157,7 @@ class BottomActionView: UIView {
     }
     
     private func animateHeightChange() {
+        numPad.isHidden = !numPad.isHidden
         let isExpanded = (heightConstraint.constant == 120)
         let newHeight: CGFloat = isExpanded ? 250 : 120
         let newButtonImage: UIImage? = isExpanded ? UIImage(systemName: "chevron.backward") : UIImage(systemName: "plus")
@@ -141,7 +168,7 @@ class BottomActionView: UIView {
         } else {
             calorieLabel.text = "Total: 2000kkal"
         }
-        
+        addButton.isHidden = true
         mainButton.setImage(newButtonImage, for: .normal)
         
         let animator = UIViewPropertyAnimator(duration: 0.4, dampingRatio: 0.5) {

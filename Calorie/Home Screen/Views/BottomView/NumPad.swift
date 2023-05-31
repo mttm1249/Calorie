@@ -8,7 +8,7 @@
 import UIKit
 
 class NumPad: UICollectionView {
-
+    
     var didSelectItem: ((String) -> Void)?
     
     init() {
@@ -40,19 +40,18 @@ extension NumPad: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: NumPadCell.identifier, for: indexPath) as! NumPadCell
-        cell.backgroundColor = .darkGray
-        cell.layer.cornerRadius = 20
-        cell.configure(with: "\(indexPath.row)")
-        return cell
+        if let cell = dequeueReusableCell(withReuseIdentifier: NumPadCell.identifier, for: indexPath) as? NumPadCell {
+            cell.backgroundColor = .darkGray
+            cell.layer.cornerRadius = 20
+            cell.configure(with: "\(indexPath.row)")
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? NumPadCell else {
-            return
-        }
-
-        let selectedText = cell.getLabelText()
-        didSelectItem?(selectedText!)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NumPadCell else { return }
+        let selectedText = cell.getLabelText()!
+        didSelectItem?(selectedText)
     }
 }

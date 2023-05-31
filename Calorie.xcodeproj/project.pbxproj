@@ -15,9 +15,10 @@
 		528A30D12A24B2A100EDE842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528A30D02A24B2A100EDE842 /* Assets.xcassets */; };
 		528A30D42A24B2A100EDE842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528A30D22A24B2A100EDE842 /* LaunchScreen.storyboard */; };
 		528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30DD2A24BDC100EDE842 /* BottomActionView.swift */; };
-		528A30EF2A24D4B000EDE842 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30EE2A24D4B000EDE842 /* Errors.swift */; };
 		52C853672A25D34400839D16 /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853662A25D34400839D16 /* NumPad.swift */; };
 		52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853682A25D3F200839D16 /* NumPadCell.swift */; };
+		52F484042A279EF400D05C11 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484032A279EF400D05C11 /* Record.swift */; };
+		52F484062A27A06300D05C11 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484052A27A06300D05C11 /* RecordManager.swift */; };
 		52F8237B2A2742B60008991D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8237A2A2742B60008991D /* TopView.swift */; };
 		52F8237F2A2743770008991D /* TopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8237E2A2743770008991D /* TopTableView.swift */; };
 		52F823812A2745250008991D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F823802A2745250008991D /* TableViewCell.swift */; };
@@ -35,9 +36,10 @@
 		528A30D32A24B2A100EDE842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		528A30D52A24B2A100EDE842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528A30DD2A24BDC100EDE842 /* BottomActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionView.swift; sourceTree = "<group>"; };
-		528A30EE2A24D4B000EDE842 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		52C853662A25D34400839D16 /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		52C853682A25D3F200839D16 /* NumPadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadCell.swift; sourceTree = "<group>"; };
+		52F484032A279EF400D05C11 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		52F484052A27A06300D05C11 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		52F8237A2A2742B60008991D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		52F8237E2A2743770008991D /* TopTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableView.swift; sourceTree = "<group>"; };
 		52F823802A2745250008991D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -84,91 +86,92 @@
 		528A30E32A24D35000EDE842 /* Home Screen */ = {
 			isa = PBXGroup;
 			children = (
-				528A30E82A24D3A600EDE842 /* Model */,
-				528A30E42A24D36B00EDE842 /* View */,
-				528A30E52A24D38200EDE842 /* Controller */,
+				528A30E82A24D3A600EDE842 /* Models */,
+				528A30E42A24D36B00EDE842 /* Views */,
+				528A30E52A24D38200EDE842 /* Controllers */,
 			);
 			path = "Home Screen";
 			sourceTree = "<group>";
 		};
-		528A30E42A24D36B00EDE842 /* View */ = {
+		528A30E42A24D36B00EDE842 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				52F8237A2A2742B60008991D /* TopView.swift */,
 				52F8237E2A2743770008991D /* TopTableView.swift */,
-				52F823822A2746080008991D /* Cell */,
+				52F823822A2746080008991D /* Cells */,
 				52F823792A2741FE0008991D /* BottomView */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		528A30E52A24D38200EDE842 /* Controller */ = {
+		528A30E52A24D38200EDE842 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				528A30C82A24B2A000EDE842 /* HomeViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		528A30E82A24D3A600EDE842 /* Model */ = {
+		528A30E82A24D3A600EDE842 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				528A30CD2A24B2A000EDE842 /* Calorie.xcdatamodeld */,
+				52F484032A279EF400D05C11 /* Record.swift */,
+				52F484052A27A06300D05C11 /* RecordManager.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		528A30E92A24D40000EDE842 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				528A30EB2A24D41400EDE842 /* Model */,
-				528A30EC2A24D41900EDE842 /* View */,
-				528A30EA2A24D40800EDE842 /* Controller */,
+				528A30EB2A24D41400EDE842 /* Models */,
+				528A30EC2A24D41900EDE842 /* Views */,
+				528A30EA2A24D40800EDE842 /* Controllers */,
 			);
 			path = Application;
 			sourceTree = "<group>";
 		};
-		528A30EA2A24D40800EDE842 /* Controller */ = {
+		528A30EA2A24D40800EDE842 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				528A30C42A24B2A000EDE842 /* AppDelegate.swift */,
 				528A30C62A24B2A000EDE842 /* SceneDelegate.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		528A30EB2A24D41400EDE842 /* Model */ = {
+		528A30EB2A24D41400EDE842 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				528A30EE2A24D4B000EDE842 /* Errors.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		528A30EC2A24D41900EDE842 /* View */ = {
+		528A30EC2A24D41900EDE842 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				528A30D22A24B2A100EDE842 /* LaunchScreen.storyboard */,
 				528A30CA2A24B2A000EDE842 /* Main.storyboard */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		528A30ED2A24D43F00EDE842 /* Supporting FIles */ = {
 			isa = PBXGroup;
 			children = (
+				528A30CD2A24B2A000EDE842 /* Calorie.xcdatamodeld */,
 				528A30D02A24B2A100EDE842 /* Assets.xcassets */,
 				528A30D52A24B2A100EDE842 /* Info.plist */,
 			);
 			path = "Supporting FIles";
 			sourceTree = "<group>";
 		};
-		52C8536A2A25F57F00839D16 /* Cell */ = {
+		52C8536A2A25F57F00839D16 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				52C853682A25D3F200839D16 /* NumPadCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		52F823792A2741FE0008991D /* BottomView */ = {
@@ -177,17 +180,17 @@
 				52C853662A25D34400839D16 /* NumPad.swift */,
 				52F823832A2751140008991D /* RoundedRectView.swift */,
 				528A30DD2A24BDC100EDE842 /* BottomActionView.swift */,
-				52C8536A2A25F57F00839D16 /* Cell */,
+				52C8536A2A25F57F00839D16 /* Cells */,
 			);
 			path = BottomView;
 			sourceTree = "<group>";
 		};
-		52F823822A2746080008991D /* Cell */ = {
+		52F823822A2746080008991D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				52F823802A2745250008991D /* TableViewCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,16 +266,17 @@
 			files = (
 				52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */,
 				528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */,
+				52F484042A279EF400D05C11 /* Record.swift in Sources */,
 				52F823842A2751150008991D /* RoundedRectView.swift in Sources */,
 				52F8237F2A2743770008991D /* TopTableView.swift in Sources */,
 				528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */,
 				528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */,
 				528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */,
 				52C853672A25D34400839D16 /* NumPad.swift in Sources */,
+				52F484062A27A06300D05C11 /* RecordManager.swift in Sources */,
 				52F8237B2A2742B60008991D /* TopView.swift in Sources */,
 				528A30CF2A24B2A000EDE842 /* Calorie.xcdatamodeld in Sources */,
 				52F823812A2745250008991D /* TableViewCell.swift in Sources */,
-				528A30EF2A24D4B000EDE842 /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
