@@ -1,8 +1,8 @@
 //
-//  RoundedView.swift
+//  RoundedRectView.swift
 //  Calorie
 //
-//  Created by mttm on 29.05.2023.
+//  Created by mttm on 31.05.2023.
 //
 
 import UIKit

@@ -9,16 +9,22 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private var topView = TopView()
     private var bottomView = BottomActionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray3
+        view.backgroundColor = .lightGray
+        setupTopView()
         setupBottomView()
     }
     
     private func handleButtonTap() {
         print("Button tapped")
+    }
+    
+    private func setupTopView() {
+        topView.activateConstraints(for: topView, in: view)
     }
     
     private func setupBottomView() {
