@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5209E42D2A2B303E00B4BACB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */; };
+		5209E42F2A2B634D00B4BACB /* CalorieCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42E2A2B634D00B4BACB /* CalorieCounter.swift */; };
 		528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C42A24B2A000EDE842 /* AppDelegate.swift */; };
 		528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C62A24B2A000EDE842 /* SceneDelegate.swift */; };
 		528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C82A24B2A000EDE842 /* HomeViewController.swift */; };
@@ -17,15 +19,16 @@
 		528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30DD2A24BDC100EDE842 /* BottomActionView.swift */; };
 		52C853672A25D34400839D16 /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853662A25D34400839D16 /* NumPad.swift */; };
 		52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853682A25D3F200839D16 /* NumPadCell.swift */; };
-		52F484042A279EF400D05C11 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484032A279EF400D05C11 /* Record.swift */; };
+		52F484042A279EF400D05C11 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484032A279EF400D05C11 /* RecordModel.swift */; };
 		52F484062A27A06300D05C11 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484052A27A06300D05C11 /* RecordManager.swift */; };
-		52F8237B2A2742B60008991D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8237A2A2742B60008991D /* TopView.swift */; };
 		52F8237F2A2743770008991D /* TopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8237E2A2743770008991D /* TopTableView.swift */; };
 		52F823812A2745250008991D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F823802A2745250008991D /* TableViewCell.swift */; };
 		52F823842A2751150008991D /* RoundedRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F823832A2751140008991D /* RoundedRectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5209E42E2A2B634D00B4BACB /* CalorieCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCounter.swift; sourceTree = "<group>"; };
 		528A30C12A24B2A000EDE842 /* Calorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calorie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528A30C42A24B2A000EDE842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		528A30C62A24B2A000EDE842 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,9 +41,8 @@
 		528A30DD2A24BDC100EDE842 /* BottomActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionView.swift; sourceTree = "<group>"; };
 		52C853662A25D34400839D16 /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		52C853682A25D3F200839D16 /* NumPadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadCell.swift; sourceTree = "<group>"; };
-		52F484032A279EF400D05C11 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		52F484032A279EF400D05C11 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		52F484052A27A06300D05C11 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
-		52F8237A2A2742B60008991D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		52F8237E2A2743770008991D /* TopTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableView.swift; sourceTree = "<group>"; };
 		52F823802A2745250008991D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		52F823832A2751140008991D /* RoundedRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5209E42B2A2B302E00B4BACB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		528A30B82A24B2A000EDE842 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 			children = (
 				528A30E92A24D40000EDE842 /* Application */,
 				528A30E32A24D35000EDE842 /* Home Screen */,
+				5209E42B2A2B302E00B4BACB /* Managers */,
 				528A30ED2A24D43F00EDE842 /* Supporting FIles */,
 			);
 			path = Calorie;
@@ -96,7 +107,6 @@
 		528A30E42A24D36B00EDE842 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52F8237A2A2742B60008991D /* TopView.swift */,
 				52F8237E2A2743770008991D /* TopTableView.swift */,
 				52F823822A2746080008991D /* Cells */,
 				52F823792A2741FE0008991D /* BottomView */,
@@ -115,8 +125,9 @@
 		528A30E82A24D3A600EDE842 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				52F484032A279EF400D05C11 /* Record.swift */,
+				52F484032A279EF400D05C11 /* RecordModel.swift */,
 				52F484052A27A06300D05C11 /* RecordManager.swift */,
+				5209E42E2A2B634D00B4BACB /* CalorieCounter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,9 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				52C853662A25D34400839D16 /* NumPad.swift */,
+				52C8536A2A25F57F00839D16 /* Cells */,
 				52F823832A2751140008991D /* RoundedRectView.swift */,
 				528A30DD2A24BDC100EDE842 /* BottomActionView.swift */,
-				52C8536A2A25F57F00839D16 /* Cells */,
 			);
 			path = BottomView;
 			sourceTree = "<group>";
@@ -266,16 +277,17 @@
 			files = (
 				52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */,
 				528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */,
-				52F484042A279EF400D05C11 /* Record.swift in Sources */,
+				52F484042A279EF400D05C11 /* RecordModel.swift in Sources */,
 				52F823842A2751150008991D /* RoundedRectView.swift in Sources */,
+				5209E42F2A2B634D00B4BACB /* CalorieCounter.swift in Sources */,
 				52F8237F2A2743770008991D /* TopTableView.swift in Sources */,
 				528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */,
 				528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */,
 				528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */,
 				52C853672A25D34400839D16 /* NumPad.swift in Sources */,
 				52F484062A27A06300D05C11 /* RecordManager.swift in Sources */,
-				52F8237B2A2742B60008991D /* TopView.swift in Sources */,
 				528A30CF2A24B2A000EDE842 /* Calorie.xcdatamodeld in Sources */,
+				5209E42D2A2B303E00B4BACB /* CoreDataManager.swift in Sources */,
 				52F823812A2745250008991D /* TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

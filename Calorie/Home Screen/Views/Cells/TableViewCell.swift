@@ -11,10 +11,11 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "TableViewCell"
     
-    let label = UILabel()
+    let recordLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        isUserInteractionEnabled = true
         setupView()
     }
     
@@ -25,19 +26,20 @@ class TableViewCell: UITableViewCell {
     
     private func setupView() {
         backgroundColor = .lightGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label)
+        recordLabel.translatesAutoresizingMaskIntoConstraints = false
+        recordLabel.font = .boldSystemFont(ofSize: 19)
+        recordLabel.textColor = .white
+        contentView.addSubview(recordLabel)
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: contentView.topAnchor),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            recordLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            recordLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            recordLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            recordLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
     
-    func configure(with text: String) {
-        label.text = text
+    func configure(with model: RecordModel) {
+        recordLabel.text = model.calorieValueInfo
     }
 }
-

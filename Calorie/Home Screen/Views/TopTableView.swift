@@ -8,11 +8,17 @@
 import UIKit
 
 class TopTableView: UITableView {
+    
+    let recordManager = RecordManager()
+    var records: [RecordModel] = []
+
     init() {
         super.init(frame: .zero, style: .plain)
         register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        self.delegate = self
-        self.dataSource = self
+        delegate = self
+        dataSource = self
+        isScrollEnabled = true
+        isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
@@ -20,14 +26,31 @@ class TopTableView: UITableView {
     }
 }
 
+// MARK: UITableViewDataSource
 extension TopTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 21
+        return records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
-        cell.configure(with: "\(indexPath.row)")
+        cell.configure(with: records[indexPath.row])
         return cell
     }
 }
+
+// MARK: Constraints
+extension TopTableView {
+    func activateConstraints(for tableView: TopTableView ,in superview: UIView) {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        superview.addSubview(self)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor),
+            tableView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 1),
+            tableView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+        ])
+    }
+}
+
+//TODO: Обновление таблицы после добавления записи!

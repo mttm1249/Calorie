@@ -6,19 +6,23 @@
 //
 
 import UIKit
+import CoreData
 
 class BottomActionView: UIView {
     
+    private let topView = TopTableView()
     private let roundedRectView = RoundedRectView()
     private let numPad = NumPad()
+    private let recordManager = RecordManager()
     private let calorieLabel = UILabel()
     private let mainButton = UIButton(type: .system)
     private let addButton = UIButton()
-    private let stackView = UIStackView()
-    private let addLabelStackView = UIStackView()
-    
+    private let verticalStackView = UIStackView()
+    private let horizontalStackView = UIStackView()
     private var heightConstraint: NSLayoutConstraint!
     
+    private var calorieCounter: CalorieCounter!
+
     var buttonAction: (() -> Void)?
     
     var labelText: String? {
@@ -30,6 +34,8 @@ class BottomActionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        calorieCounter = CalorieCounter(recordManager: recordManager)
+        updateTotalCalories()
         setupView()
         setupConstraints()
     }
@@ -42,14 +48,17 @@ class BottomActionView: UIView {
         labelText = text
     }
     
+    private func updateTotalCalories() {
+        calorieLabel.text = calorieCounter.showTotalCalories()
+    }
+    
     private func setupView() {
         // Configure stackView
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.spacing = 20
+        verticalStackView.axis = .vertical
+        verticalStackView.distribution = .fill
+        verticalStackView.spacing = 20
         
         // Configure calorieLabel
-        calorieLabel.text = "Total: 2000kkal"
         calorieLabel.font = .boldSystemFont(ofSize: 25)
         calorieLabel.textColor = .white
         calorieLabel.textAlignment = .center
@@ -62,34 +71,34 @@ class BottomActionView: UIView {
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         addButton.isHidden = true
         
-        // Configure addLabelStackView
-        addLabelStackView.axis = .horizontal
-        addLabelStackView.spacing = 5
-        addLabelStackView.distribution = .fillEqually
-        addLabelStackView.layoutMargins = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
-        addLabelStackView.isLayoutMarginsRelativeArrangement = true
-        addLabelStackView.addArrangedSubview(calorieLabel)
-        addLabelStackView.addArrangedSubview(addButton)
+        // Configure horizontalStackView
+        horizontalStackView.axis = .horizontal
+        horizontalStackView.spacing = 5
+        horizontalStackView.distribution = .fillEqually
+        horizontalStackView.layoutMargins = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        horizontalStackView.isLayoutMarginsRelativeArrangement = true
+        horizontalStackView.addArrangedSubview(calorieLabel)
+        horizontalStackView.addArrangedSubview(addButton)
         
         // Add horizontal stackView to vertical stackView
-        stackView.addArrangedSubview(addLabelStackView)
-        stackView.addArrangedSubview(numPad)
+        verticalStackView.addArrangedSubview(horizontalStackView)
+        verticalStackView.addArrangedSubview(numPad)
         
         // Add stackView to roundedRectView
-        roundedRectView.addSubview(stackView)
+        roundedRectView.addSubview(verticalStackView)
         
         // Add roundedRectView to self
         addSubview(roundedRectView)
         
-        // Configure button
+        // Configure mainButton
         mainButton.layer.cornerRadius = 30
         mainButton.backgroundColor = .white
         mainButton.setImage(UIImage(systemName: "plus"), for: .normal)
         
-        // Add button target action
+        // Add mainButton target action
         mainButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
-        // Add button to self
+        // Add mainButton to self
         addSubview(mainButton)
         
         // Configure numPad
@@ -108,9 +117,12 @@ class BottomActionView: UIView {
     }
     
     @objc private func addButtonTapped() {
-        //TODO - Save to CoreData
+        let newRecord = RecordModel(createDate: Date(), calorieValueInfo: labelText!)
+        calorieCounter.addRecord(newRecord)
         labelText = ""
         animateHeightChange()
+        topView.records = recordManager.fetchRecordsFromCoreData()
+        updateTotalCalories()
     }
     
     @objc private func buttonTapped() {
@@ -120,7 +132,7 @@ class BottomActionView: UIView {
     
     private func setupConstraints() {
         roundedRectView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         mainButton.translatesAutoresizingMaskIntoConstraints = false
         
         let bottomOffset: CGFloat = 0
@@ -137,10 +149,10 @@ class BottomActionView: UIView {
             mainButton.widthAnchor.constraint(equalToConstant: 60),
             mainButton.heightAnchor.constraint(equalToConstant: 60),
             
-            stackView.centerXAnchor.constraint(equalTo: roundedRectView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: roundedRectView.centerYAnchor, constant: 5),
-            stackView.widthAnchor.constraint(equalTo: roundedRectView.widthAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 170)
+            verticalStackView.centerXAnchor.constraint(equalTo: roundedRectView.centerXAnchor),
+            verticalStackView.centerYAnchor.constraint(equalTo: roundedRectView.centerYAnchor, constant: 5),
+            verticalStackView.widthAnchor.constraint(equalTo: roundedRectView.widthAnchor),
+            verticalStackView.heightAnchor.constraint(equalToConstant: 170)
         ])
     }
     
@@ -148,8 +160,10 @@ class BottomActionView: UIView {
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(bottomView)
         
+        let heightConstraint = bottomView.heightAnchor.constraint(equalToConstant: 280)
+        heightConstraint.isActive = true
+
         NSLayoutConstraint.activate([
-            bottomView.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor),
             bottomView.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
             bottomView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
@@ -166,7 +180,7 @@ class BottomActionView: UIView {
         if isExpanded {
             calorieLabel.text = "Enter new value!"
         } else {
-            calorieLabel.text = "Total: 2000kkal"
+            calorieLabel.text = calorieCounter.showTotalCalories()
         }
         addButton.isHidden = true
         mainButton.setImage(newButtonImage, for: .normal)

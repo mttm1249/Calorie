@@ -9,20 +9,20 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private var topView = TopView()
+    private let recordManager = RecordManager()
+    private var topView = TopTableView()
     private var bottomView = BottomActionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
+        topView.records = recordManager.fetchRecordsFromCoreData()
         setupTopView()
         setupBottomView()
     }
     
-    private func handleButtonTap() {
-        print("Button tapped")
-    }
-    
+    private func handleButtonTap() {}
+        
     private func setupTopView() {
         topView.activateConstraints(for: topView, in: view)
     }

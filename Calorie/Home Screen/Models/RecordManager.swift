@@ -9,16 +9,28 @@ import Foundation
 import CoreData
 
 class RecordManager {
-    static func saveRecordToCoreData(record: Record, context: NSManagedObjectContext) {
+    
+    private let context = CoreDataManager.shared.persistentContainer.newBackgroundContext()
+    
+    func saveRecordToCoreData(record: RecordModel) {
         let recordEntity = RecordEntity(context: context)
-        recordEntity.name = record.name
-        recordEntity.date = record.date
-        recordEntity.descriptionInfo = record.descriptionInfo
-        
+        recordEntity.createDate = record.createDate
+        recordEntity.calorieValueInfo = record.calorieValueInfo
         do {
             try context.save()
         } catch let error {
             print("Failed to save Record: \(error)")
+        }
+    }
+    
+    func fetchRecordsFromCoreData() -> [RecordModel] {
+        let fetchRequest = NSFetchRequest<RecordEntity>(entityName: "RecordEntity")
+        do {
+            let fetchedEntities = try context.fetch(fetchRequest)
+            return fetchedEntities.map { RecordModel(createDate: $0.createDate!, calorieValueInfo: $0.calorieValueInfo!) }
+        } catch {
+            print("Failed to fetch records: \(error)")
+            return []
         }
     }
 }
