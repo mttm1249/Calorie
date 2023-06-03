@@ -93,7 +93,7 @@ class BottomActionView: UIView {
         
         // Configure mainButton
         mainButton.layer.cornerRadius = 30
-        mainButton.backgroundColor = .white
+        mainButton.backgroundColor = .systemGray6
         mainButton.setImage(UIImage(systemName: "plus"), for: .normal)
         
         // Add mainButton target action

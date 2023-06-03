@@ -188,8 +188,8 @@
 		52F823792A2741FE0008991D /* BottomView */ = {
 			isa = PBXGroup;
 			children = (
-				52C853662A25D34400839D16 /* NumPad.swift */,
 				52C8536A2A25F57F00839D16 /* Cells */,
+				52C853662A25D34400839D16 /* NumPad.swift */,
 				52F823832A2751140008991D /* RoundedRectView.swift */,
 				528A30DD2A24BDC100EDE842 /* BottomActionView.swift */,
 			);

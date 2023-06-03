@@ -11,7 +11,7 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "TableViewCell"
     
-    let recordLabel = UILabel()
+    private let recordLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,11 +25,12 @@ class TableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        backgroundColor = .lightGray
+        self.separatorInset = .zero
+        self.backgroundColor = .lightGray
         recordLabel.translatesAutoresizingMaskIntoConstraints = false
         recordLabel.font = .boldSystemFont(ofSize: 19)
         recordLabel.textColor = .white
-        contentView.addSubview(recordLabel)
+        self.contentView.addSubview(recordLabel)
         
         NSLayoutConstraint.activate([
             recordLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
