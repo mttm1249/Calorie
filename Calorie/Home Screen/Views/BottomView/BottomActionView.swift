@@ -121,8 +121,9 @@ class BottomActionView: UIView {
         calorieCounter.addRecord(newRecord)
         labelText = ""
         animateHeightChange()
-        topView.records = recordManager.fetchRecordsFromCoreData()
         updateTotalCalories()
+        topView.records = recordManager.fetchRecordsFromCoreData()
+        topView.updateTableView()
     }
     
     @objc private func buttonTapped() {
@@ -156,19 +157,19 @@ class BottomActionView: UIView {
         ])
     }
     
-    func activateConstraints(for bottomView: BottomActionView, in superview: UIView) {
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        superview.addSubview(bottomView)
-        
-        let heightConstraint = bottomView.heightAnchor.constraint(equalToConstant: 280)
-        heightConstraint.isActive = true
+    func activateConstraints(in superview: UIView) {
+           translatesAutoresizingMaskIntoConstraints = false
+           superview.addSubview(self)
+           
+           let heightConstraint = heightAnchor.constraint(equalToConstant: 280)
+           heightConstraint.isActive = true
 
-        NSLayoutConstraint.activate([
-            bottomView.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
-            bottomView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
-        ])
-    }
+           NSLayoutConstraint.activate([
+               bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
+               leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+               trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+           ])
+       }
     
     private func animateHeightChange() {
         numPad.isHidden = !numPad.isHidden
@@ -176,7 +177,6 @@ class BottomActionView: UIView {
         let newHeight: CGFloat = isExpanded ? 250 : 120
         let newButtonImage: UIImage? = isExpanded ? UIImage(systemName: "chevron.backward") : UIImage(systemName: "plus")
         
-        // TODO
         if isExpanded {
             calorieLabel.text = "Enter new value!"
         } else {

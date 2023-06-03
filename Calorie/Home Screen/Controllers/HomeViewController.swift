@@ -24,13 +24,13 @@ class HomeViewController: UIViewController {
     private func handleButtonTap() {}
         
     private func setupTopView() {
-        topView.activateConstraints(for: topView, in: view)
+        topView.activateConstraints(in: view)
     }
     
     private func setupBottomView() {
         bottomView.buttonAction = { [weak self] in
             self?.handleButtonTap()
         }
-        bottomView.activateConstraints(for: bottomView, in: view)
+        bottomView.activateConstraints(in: view)
     }
 }

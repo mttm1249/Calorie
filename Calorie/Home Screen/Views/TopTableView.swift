@@ -9,20 +9,26 @@ import UIKit
 
 class TopTableView: UITableView {
     
-    let recordManager = RecordManager()
-    var records: [RecordModel] = []
+    private let recordManager = RecordManager()
 
+    var records: [RecordModel] = []
+    
     init() {
         super.init(frame: .zero, style: .plain)
-        register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
-        delegate = self
-        dataSource = self
-        isScrollEnabled = true
-        isUserInteractionEnabled = true
+        self.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
+        self.delegate = self
+        self.dataSource = self
+        self.isScrollEnabled = true
+        self.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //TODO: Обновление таблицы после добавления записи!
+    func updateTableView() {
+        self.reloadData()
     }
 }
 
@@ -41,16 +47,14 @@ extension TopTableView: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: Constraints
 extension TopTableView {
-    func activateConstraints(for tableView: TopTableView ,in superview: UIView) {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+    func activateConstraints(in superview: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(self)
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor),
-            tableView.heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 1),
-            tableView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+            topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor),
+            heightAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.heightAnchor, multiplier: 1),
+            leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            trailingAnchor.constraint(equalTo: superview.trailingAnchor)
         ])
     }
 }
-
-//TODO: Обновление таблицы после добавления записи!
