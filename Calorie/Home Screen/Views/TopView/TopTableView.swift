@@ -50,7 +50,7 @@ extension TopTableView: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: Constraints
+// MARK: Constraints Setup
 extension TopTableView {
     func activateConstraints(in superview: UIView) {
         translatesAutoresizingMaskIntoConstraints = false

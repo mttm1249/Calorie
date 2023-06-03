@@ -67,6 +67,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		5273961D2A2BA72A00F45578 /* TopView */ = {
+			isa = PBXGroup;
+			children = (
+				52F8237E2A2743770008991D /* TopTableView.swift */,
+				52F823822A2746080008991D /* Cells */,
+			);
+			path = TopView;
+			sourceTree = "<group>";
+		};
 		528A30B82A24B2A000EDE842 = {
 			isa = PBXGroup;
 			children = (
@@ -107,8 +116,7 @@
 		528A30E42A24D36B00EDE842 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				52F8237E2A2743770008991D /* TopTableView.swift */,
-				52F823822A2746080008991D /* Cells */,
+				5273961D2A2BA72A00F45578 /* TopView */,
 				52F823792A2741FE0008991D /* BottomView */,
 			);
 			path = Views;
