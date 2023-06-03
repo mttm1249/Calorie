@@ -24,6 +24,7 @@ class BottomActionView: UIView {
     private var calorieCounter: CalorieCounter!
 
     var buttonAction: (() -> Void)?
+    var updateTableAction: (() -> Void)?
     
     var labelText: String? {
         didSet {
@@ -122,8 +123,7 @@ class BottomActionView: UIView {
         labelText = ""
         animateHeightChange()
         updateTotalCalories()
-        topView.records = recordManager.fetchRecordsFromCoreData()
-        topView.updateTableView()
+        updateTableAction?()
     }
     
     @objc private func buttonTapped() {

@@ -21,8 +21,10 @@ class HomeViewController: UIViewController {
         setupBottomView()
     }
     
-    private func handleButtonTap() {}
-        
+    private func handleButtonTap() {
+        topView.updateTableView(with: recordManager.fetchRecordsFromCoreData())
+    }
+    
     private func setupTopView() {
         topView.activateConstraints(in: view)
     }
@@ -30,6 +32,9 @@ class HomeViewController: UIViewController {
     private func setupBottomView() {
         bottomView.buttonAction = { [weak self] in
             self?.handleButtonTap()
+        }
+        bottomView.updateTableAction = { [weak self] in
+            self?.topView.updateTableView(with: self?.recordManager.fetchRecordsFromCoreData() ?? [])
         }
         bottomView.activateConstraints(in: view)
     }

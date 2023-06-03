@@ -9,26 +9,25 @@ import UIKit
 
 class TopTableView: UITableView {
     
-    private let recordManager = RecordManager()
-
     var records: [RecordModel] = []
     
     init() {
         super.init(frame: .zero, style: .plain)
-        self.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         self.delegate = self
         self.dataSource = self
-        self.isScrollEnabled = true
-        self.isUserInteractionEnabled = true
+        self.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //TODO: Обновление таблицы после добавления записи!
-    func updateTableView() {
-        self.reloadData()
+    // Update TableView Method
+    func updateTableView(with newRecords: [RecordModel]) {
+        DispatchQueue.main.async {
+            self.records = newRecords
+            self.reloadData()
+        }
     }
 }
 
@@ -42,6 +41,10 @@ extension TopTableView: UITableViewDelegate, UITableViewDataSource {
         let cell = dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as! TableViewCell
         cell.configure(with: records[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }
 

@@ -15,7 +15,7 @@ class TableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        isUserInteractionEnabled = true
+        isUserInteractionEnabled = false
         setupView()
     }
     
@@ -34,12 +34,12 @@ class TableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             recordLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             recordLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            recordLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            recordLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
             recordLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
     
     func configure(with model: RecordModel) {
-        recordLabel.text = model.calorieValueInfo
+        recordLabel.text = model.calorieValueInfo + " kkal"
     }
 }
