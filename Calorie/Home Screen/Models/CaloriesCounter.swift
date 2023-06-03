@@ -1,5 +1,5 @@
 //
-//  CalorieCounter.swift
+//  CaloriesCounter.swift
 //  Calorie
 //
 //  Created by mttm on 03.06.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CalorieCounter {
+class CaloriesCounter {
     private var records: [RecordModel] = []
     private let recordManager: RecordManager
 

@@ -16,6 +16,6 @@ class RoundedRectView: UIView {
                                        byRoundingCorners: [.topLeft, .topRight],
                                        cornerRadii: CGSize(width: 20, height: 20)).cgPath
         layer.mask = shapeLayer
-        backgroundColor = UIColor.lightGray
+        backgroundColor = .lightGray
     }
 }

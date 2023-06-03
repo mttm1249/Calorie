@@ -34,6 +34,7 @@ class NumPad: UICollectionView {
     }
 }
 
+// MARK: UICollectionViewDataSource
 extension NumPad: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -41,8 +42,6 @@ extension NumPad: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = dequeueReusableCell(withReuseIdentifier: NumPadCell.identifier, for: indexPath) as? NumPadCell {
-            cell.backgroundColor = .darkGray
-            cell.layer.cornerRadius = 20
             cell.configure(with: "\(indexPath.row)")
             return cell
         }

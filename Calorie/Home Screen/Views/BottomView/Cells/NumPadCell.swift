@@ -30,6 +30,8 @@ class NumPadCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .darkGray
+        self.layer.cornerRadius = 20
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

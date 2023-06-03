@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5209E42D2A2B303E00B4BACB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */; };
-		5209E42F2A2B634D00B4BACB /* CalorieCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42E2A2B634D00B4BACB /* CalorieCounter.swift */; };
+		5209E42F2A2B634D00B4BACB /* CaloriesCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42E2A2B634D00B4BACB /* CaloriesCounter.swift */; };
 		528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C42A24B2A000EDE842 /* AppDelegate.swift */; };
 		528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C62A24B2A000EDE842 /* SceneDelegate.swift */; };
 		528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C82A24B2A000EDE842 /* HomeViewController.swift */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		5209E42E2A2B634D00B4BACB /* CalorieCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCounter.swift; sourceTree = "<group>"; };
+		5209E42E2A2B634D00B4BACB /* CaloriesCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCounter.swift; sourceTree = "<group>"; };
 		528A30C12A24B2A000EDE842 /* Calorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calorie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528A30C42A24B2A000EDE842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		528A30C62A24B2A000EDE842 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			children = (
 				52F484032A279EF400D05C11 /* RecordModel.swift */,
 				52F484052A27A06300D05C11 /* RecordManager.swift */,
-				5209E42E2A2B634D00B4BACB /* CalorieCounter.swift */,
+				5209E42E2A2B634D00B4BACB /* CaloriesCounter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */,
 				52F484042A279EF400D05C11 /* RecordModel.swift in Sources */,
 				52F823842A2751150008991D /* RoundedRectView.swift in Sources */,
-				5209E42F2A2B634D00B4BACB /* CalorieCounter.swift in Sources */,
+				5209E42F2A2B634D00B4BACB /* CaloriesCounter.swift in Sources */,
 				52F8237F2A2743770008991D /* TopTableView.swift in Sources */,
 				528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */,
 				528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */,
