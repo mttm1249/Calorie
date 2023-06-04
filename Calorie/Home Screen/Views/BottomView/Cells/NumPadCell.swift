@@ -14,6 +14,7 @@ class NumPadCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
+         label.font = .boldSystemFont(ofSize: 19)
         return label
     }()
     
@@ -22,7 +23,7 @@ class NumPadCell: UICollectionViewCell {
             let scale: CGFloat = isHighlighted ? 1.4 : 1.0
             let transform = CGAffineTransform(scaleX: scale, y: scale)
             
-            UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: [.curveEaseInOut], animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.9, options: [.curveEaseInOut], animations: {
                 self.transform = transform
             }, completion: nil)
         }

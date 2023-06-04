@@ -18,6 +18,10 @@
 		528A30D12A24B2A100EDE842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528A30D02A24B2A100EDE842 /* Assets.xcassets */; };
 		528A30D42A24B2A100EDE842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528A30D22A24B2A100EDE842 /* LaunchScreen.storyboard */; };
 		528A30DE2A24BDC200EDE842 /* BottomActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30DD2A24BDC100EDE842 /* BottomActionView.swift */; };
+		52925C092A2D0D630021A290 /* HistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52925C082A2D0D630021A290 /* HistoryTableView.swift */; };
+		52925C0C2A2D0E050021A290 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52925C0B2A2D0E050021A290 /* HistoryTableViewCell.swift */; };
+		52925C0E2A2D0EBB0021A290 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52925C0D2A2D0EBA0021A290 /* HistoryViewController.swift */; };
+		52925C102A2D143E0021A290 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52925C0F2A2D143E0021A290 /* TimeManager.swift */; };
 		52C853672A25D34400839D16 /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853662A25D34400839D16 /* NumPad.swift */; };
 		52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853682A25D3F200839D16 /* NumPadCell.swift */; };
 		52F484042A279EF400D05C11 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484032A279EF400D05C11 /* RecordModel.swift */; };
@@ -43,6 +47,10 @@
 		528A30D32A24B2A100EDE842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		528A30D52A24B2A100EDE842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		528A30DD2A24BDC100EDE842 /* BottomActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomActionView.swift; sourceTree = "<group>"; };
+		52925C082A2D0D630021A290 /* HistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableView.swift; sourceTree = "<group>"; };
+		52925C0B2A2D0E050021A290 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		52925C0D2A2D0EBA0021A290 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		52925C0F2A2D143E0021A290 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		52C853662A25D34400839D16 /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		52C853682A25D3F200839D16 /* NumPadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadCell.swift; sourceTree = "<group>"; };
 		52F484032A279EF400D05C11 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
@@ -72,6 +80,7 @@
 				52F484052A27A06300D05C11 /* RecordManager.swift */,
 				5273961E2A2BB8B800F45578 /* DailySummatonManager.swift */,
 				52F6C27E2A2C6296004F12B9 /* DateManager.swift */,
+				52925C0F2A2D143E0021A290 /* TimeManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -194,6 +203,14 @@
 			path = "Supporting FIles";
 			sourceTree = "<group>";
 		};
+		52925C0A2A2D0DF20021A290 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				52925C0B2A2D0E050021A290 /* HistoryTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		52C8536A2A25F57F00839D16 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +232,7 @@
 		52F6C2812A2C67E3004F12B9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				52925C0D2A2D0EBA0021A290 /* HistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +240,8 @@
 		52F6C2822A2C67EC004F12B9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52925C082A2D0D630021A290 /* HistoryTableView.swift */,
+				52925C0A2A2D0DF20021A290 /* Cell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,8 +344,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52925C092A2D0D630021A290 /* HistoryTableView.swift in Sources */,
 				52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */,
+				52925C102A2D143E0021A290 /* TimeManager.swift in Sources */,
 				528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */,
+				52925C0E2A2D0EBB0021A290 /* HistoryViewController.swift in Sources */,
 				52F484042A279EF400D05C11 /* RecordModel.swift in Sources */,
 				52F6C2852A2C680C004F12B9 /* DailyTotalModel.swift in Sources */,
 				52F823842A2751150008991D /* RoundedRectView.swift in Sources */,
@@ -338,6 +361,7 @@
 				52C853672A25D34400839D16 /* NumPad.swift in Sources */,
 				52F484062A27A06300D05C11 /* RecordManager.swift in Sources */,
 				528A30CF2A24B2A000EDE842 /* Calorie.xcdatamodeld in Sources */,
+				52925C0C2A2D0E050021A290 /* HistoryTableViewCell.swift in Sources */,
 				5273961F2A2BB8B800F45578 /* DailySummatonManager.swift in Sources */,
 				5209E42D2A2B303E00B4BACB /* CoreDataManager.swift in Sources */,
 				52F823812A2745250008991D /* TableViewCell.swift in Sources */,
