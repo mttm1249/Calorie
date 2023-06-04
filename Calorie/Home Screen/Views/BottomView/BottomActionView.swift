@@ -122,7 +122,6 @@ class BottomActionView: UIView {
     @objc private func addButtonTapped() {
         let newRecord = RecordModel(createDate: Date(), calorieValueInfo: calorieLabelText!)
         calorieCounter.addRecord(newRecord)
-        calorieLabelText = ""
         animateHeightChange()
         updateTotalCalories()
         updateTableViewAction?()
@@ -135,6 +134,7 @@ class BottomActionView: UIView {
     
     // BottomView animation method
     private func animateHeightChange() {
+        calorieLabelText = ""
         numPad.isHidden = !numPad.isHidden
         let isExpanded = (heightConstraint.constant == 120)
         let newHeight: CGFloat = isExpanded ? 250 : 120
