@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5209E42D2A2B303E00B4BACB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */; };
 		5209E42F2A2B634D00B4BACB /* CaloriesCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209E42E2A2B634D00B4BACB /* CaloriesCounter.swift */; };
+		5273961F2A2BB8B800F45578 /* DailySummatonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5273961E2A2BB8B800F45578 /* DailySummatonManager.swift */; };
 		528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C42A24B2A000EDE842 /* AppDelegate.swift */; };
 		528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C62A24B2A000EDE842 /* SceneDelegate.swift */; };
 		528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528A30C82A24B2A000EDE842 /* HomeViewController.swift */; };
@@ -21,6 +22,8 @@
 		52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C853682A25D3F200839D16 /* NumPadCell.swift */; };
 		52F484042A279EF400D05C11 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484032A279EF400D05C11 /* RecordModel.swift */; };
 		52F484062A27A06300D05C11 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F484052A27A06300D05C11 /* RecordManager.swift */; };
+		52F6C27F2A2C6296004F12B9 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6C27E2A2C6296004F12B9 /* DateManager.swift */; };
+		52F6C2852A2C680C004F12B9 /* DailyTotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6C2842A2C680C004F12B9 /* DailyTotalModel.swift */; };
 		52F8237F2A2743770008991D /* TopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8237E2A2743770008991D /* TopTableView.swift */; };
 		52F823812A2745250008991D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F823802A2745250008991D /* TableViewCell.swift */; };
 		52F823842A2751150008991D /* RoundedRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F823832A2751140008991D /* RoundedRectView.swift */; };
@@ -29,6 +32,7 @@
 /* Begin PBXFileReference section */
 		5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5209E42E2A2B634D00B4BACB /* CaloriesCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesCounter.swift; sourceTree = "<group>"; };
+		5273961E2A2BB8B800F45578 /* DailySummatonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySummatonManager.swift; sourceTree = "<group>"; };
 		528A30C12A24B2A000EDE842 /* Calorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calorie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528A30C42A24B2A000EDE842 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		528A30C62A24B2A000EDE842 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,8 @@
 		52C853682A25D3F200839D16 /* NumPadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadCell.swift; sourceTree = "<group>"; };
 		52F484032A279EF400D05C11 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		52F484052A27A06300D05C11 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		52F6C27E2A2C6296004F12B9 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		52F6C2842A2C680C004F12B9 /* DailyTotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTotalModel.swift; sourceTree = "<group>"; };
 		52F8237E2A2743770008991D /* TopTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableView.swift; sourceTree = "<group>"; };
 		52F823802A2745250008991D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		52F823832A2751140008991D /* RoundedRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectView.swift; sourceTree = "<group>"; };
@@ -63,6 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				5209E42C2A2B303E00B4BACB /* CoreDataManager.swift */,
+				52F484052A27A06300D05C11 /* RecordManager.swift */,
+				5273961E2A2BB8B800F45578 /* DailySummatonManager.swift */,
+				52F6C27E2A2C6296004F12B9 /* DateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -97,6 +106,7 @@
 			children = (
 				528A30E92A24D40000EDE842 /* Application */,
 				528A30E32A24D35000EDE842 /* Home Screen */,
+				52F6C2802A2C67CF004F12B9 /* History Screen */,
 				5209E42B2A2B302E00B4BACB /* Managers */,
 				528A30ED2A24D43F00EDE842 /* Supporting FIles */,
 			);
@@ -134,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				52F484032A279EF400D05C11 /* RecordModel.swift */,
-				52F484052A27A06300D05C11 /* RecordManager.swift */,
 				5209E42E2A2B634D00B4BACB /* CaloriesCounter.swift */,
 			);
 			path = Models;
@@ -191,6 +200,38 @@
 				52C853682A25D3F200839D16 /* NumPadCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		52F6C2802A2C67CF004F12B9 /* History Screen */ = {
+			isa = PBXGroup;
+			children = (
+				52F6C2832A2C67F6004F12B9 /* Models */,
+				52F6C2822A2C67EC004F12B9 /* Views */,
+				52F6C2812A2C67E3004F12B9 /* Controllers */,
+			);
+			path = "History Screen";
+			sourceTree = "<group>";
+		};
+		52F6C2812A2C67E3004F12B9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		52F6C2822A2C67EC004F12B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		52F6C2832A2C67F6004F12B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				52F6C2842A2C680C004F12B9 /* DailyTotalModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		52F823792A2741FE0008991D /* BottomView */ = {
@@ -286,8 +327,10 @@
 				52C853692A25D3F200839D16 /* NumPadCell.swift in Sources */,
 				528A30C92A24B2A000EDE842 /* HomeViewController.swift in Sources */,
 				52F484042A279EF400D05C11 /* RecordModel.swift in Sources */,
+				52F6C2852A2C680C004F12B9 /* DailyTotalModel.swift in Sources */,
 				52F823842A2751150008991D /* RoundedRectView.swift in Sources */,
 				5209E42F2A2B634D00B4BACB /* CaloriesCounter.swift in Sources */,
+				52F6C27F2A2C6296004F12B9 /* DateManager.swift in Sources */,
 				52F8237F2A2743770008991D /* TopTableView.swift in Sources */,
 				528A30C52A24B2A000EDE842 /* AppDelegate.swift in Sources */,
 				528A30C72A24B2A000EDE842 /* SceneDelegate.swift in Sources */,
@@ -295,6 +338,7 @@
 				52C853672A25D34400839D16 /* NumPad.swift in Sources */,
 				52F484062A27A06300D05C11 /* RecordManager.swift in Sources */,
 				528A30CF2A24B2A000EDE842 /* Calorie.xcdatamodeld in Sources */,
+				5273961F2A2BB8B800F45578 /* DailySummatonManager.swift in Sources */,
 				5209E42D2A2B303E00B4BACB /* CoreDataManager.swift in Sources */,
 				52F823812A2745250008991D /* TableViewCell.swift in Sources */,
 			);

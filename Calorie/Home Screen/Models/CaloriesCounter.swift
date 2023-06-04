@@ -21,7 +21,7 @@ class CaloriesCounter {
     }
 
     func updateRecords() {
-        self.records = recordManager.fetchRecordsFromCoreData()
+        self.records = recordManager.fetchRecordsFromCoreData().filter { Calendar.current.isDateInToday($0.createDate) }
     }
 
     func addRecord(_ record: RecordModel) {

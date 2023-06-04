@@ -21,13 +21,13 @@ class HomeViewController: UIViewController {
     
     private func setupTopView() {
         view.backgroundColor = .lightGray
-        topView.records = recordManager.fetchRecordsFromCoreData()
+        topView.records = recordManager.fetchRecordsFromCoreData().filter { Calendar.current.isDateInToday($0.createDate) }
         topView.activateConstraints(in: view)
     }
     
     private func setupBottomView() {
         bottomView.updateTableViewAction = { [weak self] in
-            self?.topView.updateTableView(with: self?.recordManager.fetchRecordsFromCoreData() ?? [])
+            self?.topView.updateTableView(with: self?.recordManager.fetchRecordsFromCoreData().filter { Calendar.current.isDateInToday($0.createDate) } ?? [])
         }
         bottomView.activateConstraints(in: view)
     }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct DailyTotalModel {
+    let date: Date
+    let totalCaloriesinfo: Int
+}
