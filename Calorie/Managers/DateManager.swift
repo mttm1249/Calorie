@@ -9,7 +9,7 @@ import Foundation
 
 class DateManager {
     
-    let calendar = Calendar.current
+    private let calendar = Calendar.current
 
     func secondsUntilMidnight() -> TimeInterval {
         let now = Date()
