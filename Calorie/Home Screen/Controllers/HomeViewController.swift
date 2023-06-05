@@ -10,11 +10,13 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private let recordManager = RecordManager()
+    private lazy var dailySummationManager = DailySummationManager(recordManager: self.recordManager)
     private var topView = TopTableView()
     private var bottomView = BottomActionView()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        dailySummationManager.saveMissingRecordsIfNeeded()
         setupTopView()
         setupBottomView()
     }

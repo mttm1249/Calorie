@@ -37,7 +37,7 @@ class RecordManager {
     func saveDailyTotalToCoreData(dailyTotal: DailyTotalModel) {
         let dailyTotalEntity = DailyTotalEntity(context: context)
         dailyTotalEntity.date = dailyTotal.date
-        dailyTotalEntity.totalCaloriesinfo = Int16(dailyTotal.totalCaloriesinfo)
+        dailyTotalEntity.totalCaloriesinfo = Int64(dailyTotal.totalCaloriesinfo)
         do {
             try context.save()
         } catch let error {
