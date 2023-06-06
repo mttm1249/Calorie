@@ -18,7 +18,7 @@ class HistoryViewController: UIViewController {
     }
         
     private func setupTableView() {
-        historyTableView.updateTableView(with: recordManager.fetchAllDailyTotalsFromCoreData())
         historyTableView.activateConstraints(in: view)
+        historyTableView.updateTableView(with: recordManager.fetchAllDailyTotalsFromCoreData())
     }
 }
