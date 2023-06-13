@@ -28,6 +28,11 @@ class DailySummationManager {
         let lastRecords = allRecords.filter { dateManager.isSameDay(date1: $0.createDate, date2: lastRecordDate) }
         let totalCalories = lastRecords.compactMap { Int($0.calorieValueInfo) }.reduce(0, +)
         
+        let dailyTotalRecords = recordManager.fetchAllDailyTotalsFromCoreData()
+        let sortedDailyTotalRecords = dailyTotalRecords.sorted { $0.date > $1.date }
+        
+        if let lastDailyTotalRecordDate = sortedDailyTotalRecords.first?.date, dateManager.isSameDay(date1: lastRecordDate, date2: lastDailyTotalRecordDate) { return }
+        
         let dailySumRecord = DailyTotalModel(date: lastRecordDate, totalCaloriesinfo: totalCalories)
         
         recordManager.saveDailyTotalToCoreData(dailyTotal: dailySumRecord)
