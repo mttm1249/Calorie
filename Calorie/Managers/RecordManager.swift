@@ -48,7 +48,7 @@ class RecordManager {
     func fetchAllDailyTotalsFromCoreData() -> [DailyTotalModel] {
         let fetchRequest = NSFetchRequest<DailyTotalEntity>(entityName: "DailyTotalEntity")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-
+        
         do {
             let fetchedEntities = try context.fetch(fetchRequest)
             return fetchedEntities.compactMap { DailyTotalModel(date: $0.date!, totalCaloriesinfo: Int($0.totalCaloriesinfo)) }
